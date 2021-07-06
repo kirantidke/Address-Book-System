@@ -5,6 +5,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class AddressBook {
+	
 	public static final ArrayList<Contacts> contactList = new ArrayList<>();
 	public static Map<String, Contacts> nameHashMap = new HashMap<String, Contacts>();
 	public static Map<String, Contacts> cityHashMap = new HashMap<String, Contacts>();

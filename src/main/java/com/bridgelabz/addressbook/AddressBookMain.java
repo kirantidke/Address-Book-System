@@ -7,6 +7,7 @@ package com.bridgelabz.addressbook;
 import java.util.*;
 
 public class AddressBookMain {
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		AddressBook addressBook = new AddressBook();

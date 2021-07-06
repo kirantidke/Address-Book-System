@@ -1,7 +1,10 @@
 package com.bridgelabz.addressbook;
 
 import java.util.*;
+
 import java.util.function.Function;
+
+
 import java.util.stream.Collectors;
 
 public class AddressBook {
@@ -235,6 +238,7 @@ public class AddressBook {
 		}
 	}
 
+
 	public static void countByOption() {
 		System.out.println("1. Count City ");
 		System.out.println("2. Count State");
@@ -259,4 +263,5 @@ public class AddressBook {
 			System.out.println("Invalid Option");
 		}
 	}
+
 }

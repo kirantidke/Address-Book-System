@@ -1,7 +1,12 @@
 package com.bridgelabz.addressbook;
 
 import java.util.*;
+
+
 import java.util.function.Function;
+
+
+
 import java.util.stream.Collectors;
 
 public class AddressBook {
@@ -53,7 +58,7 @@ public class AddressBook {
 
 	public static void viewByState(Map<String, Contacts> stateHashMap) {
 		stateHashMap.entrySet().stream().forEach(e -> System.out.println(e.getKey() + "=" + e.getValue().toString()));
-	}
+
 
 	public List<Contacts> sortBy(Function<? super Contacts, ? extends String> key) {
 		return contactList.stream().sorted(Comparator.comparing(key)).collect(Collectors.toList());
@@ -61,6 +66,7 @@ public class AddressBook {
 
 	public List<Contacts> sortByZip(Function<? super Contacts, ? extends Long> key) {
 		return contactList.stream().sorted(Comparator.comparing(key)).collect(Collectors.toList());
+
 	}
 
 	// method for edit contact
@@ -124,8 +130,12 @@ public class AddressBook {
 			System.out.println("2. Edit contact details");
 			System.out.println("3. Delete contact details");
 			System.out.println("4. Show contacts details");
+
 			System.out.println("5. Sort Address Book");
 			System.out.println("6. Back to main menu");
+
+			System.out.println("5. Back to main menu");
+
 			System.out.print("Enter Your choice: ");
 			int choice = sc.nextInt();
 			sc.nextLine();
@@ -178,9 +188,12 @@ public class AddressBook {
 				System.out.println(toString()); // call tostring method for showing details
 				break;
 			case 5:
+
 				sortByOption();
 				break;
 			case 6:
+
+
 				return;
 			default:
 				System.out.println("Invalid Choice!");
@@ -247,6 +260,7 @@ public class AddressBook {
 		}
 	}
 
+
 	public static void countByOption() {
 		System.out.println("1. Count City ");
 		System.out.println("2. Count State");
@@ -271,6 +285,7 @@ public class AddressBook {
 			System.out.println("Invalid Option");
 		}
 	}
+
 
 	public static void sortByOption() {
 		System.out.println("1. By first name");
@@ -305,4 +320,5 @@ public class AddressBook {
 			System.out.println("INVALID CHOICE!");
 		}
 	}
+
 }

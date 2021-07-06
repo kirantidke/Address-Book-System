@@ -22,6 +22,75 @@ public class Contacts {
         this.email = email;
     }
 
+    public String getfName() {
+        return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public Long getZip() {
+        return zip;
+    }
+
+    public Long getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Contacts))
+            return false;
+
+        Contacts other = (Contacts) obj;
+        if (!(fName.equalsIgnoreCase(other.getfName())))
+            return false;
+        if (!(lName.equalsIgnoreCase(other.getlName())))
+            return false;
+        if (!(address.equalsIgnoreCase(other.getAddress())))
+            return false;
+        if (!(city.equalsIgnoreCase(other.getCity())))
+            return false;
+        if (!state.equalsIgnoreCase(other.getState()))
+            return false;
+        if (!zip.equals(other.getZip()))
+            return false;
+        if (!(phone.equals(other.getPhone())))
+            return false;
+        return email.equals(other.getEmail());
+    }
+
     @Override
     public String toString() {
         return
@@ -36,11 +105,4 @@ public class Contacts {
                 "\n-----------------------------------";
     }
 
-    public String getfName() {
-        return fName;
-    }
-
-    public void setfName(String fName) {
-        this.fName = fName;
-    }
 }

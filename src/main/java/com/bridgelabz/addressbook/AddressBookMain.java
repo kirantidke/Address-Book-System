@@ -22,6 +22,9 @@ public class AddressBookMain {
 			System.out.println("6. Count Contacts ");
 			System.out.println("7. Exit");
 
+			System.out.println("6. Count Contacts ");
+			System.out.println("7. Exit");
+
 			System.out.println("6. Exit");
 
 			System.out.print("Enter Your choice: ");

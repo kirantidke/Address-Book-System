@@ -1,132 +1,119 @@
 package com.bridgelabz.addressbook;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class AddressBook {
-	Contacts contact;
-	Scanner sc = new Scanner(System.in);// object of scanner class
-	ArrayList<Contacts> contactArrayList = new ArrayList<Contacts>();
-	public void addContact() {
+	public ArrayList<Contacts> contactList = new ArrayList<>();
 
-		contact = new Contacts();//create object of contact class
+	public void addContact(Contacts contact) {
+		contactList.add(contact);
+	}
 
-		System.out.println("Enter First Name: ");
+	// method for search contact by name
+	public int searchByName(String name) {
+		for (Contacts contact : contactList)
+			if (contact.getfName().equalsIgnoreCase(name))
+				return contactList.indexOf(contact);
+		return -1;
+	}
+
+	// method for edit contact
+	public boolean editContact(String name, Contacts edit) {
+		int index = searchByName(name);
+		if (index == -1)
+			return false;
+		contactList.set(index, edit);
+		return true;
+	}
+
+	// method for delete contact
+	public boolean deleteContact(String name) {
+		int index = searchByName(name);
+		if (index == -1)
+			return false;
+		contactList.remove(index);
+		return true;
+	}
+
+	// for showing output details
+	@Override
+	public String toString() {
+		if (contactList.isEmpty())
+			return "No contacts found!";
+		String result = new String();
+		for (int i = 0; i < contactList.size(); i++) {
+			result += " " + contactList.get(i);
+		}
+		return result;
+	}
+
+	// method for adding details
+	public static Contacts readContact() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter First Name: ");
 		String firstName = sc.nextLine();
-		System.out.println("Enter last Name: ");
+		System.out.print("Enter Last Name: ");
 		String lastName = sc.nextLine();
-		System.out.println("Enter your address: ");
+		System.out.print("Enter Address: ");
 		String address = sc.nextLine();
-		System.out.println("Enter your city: ");
+		System.out.print("Enter City: ");
 		String city = sc.nextLine();
-		System.out.println("Enter your state: ");
+		System.out.print("Enter State: ");
 		String state = sc.nextLine();
-		System.out.println("Enter zip code of your area: ");
-		Long zipCode = sc.nextLong();
+		System.out.print("Enter Zip Code: ");
+		Long zip = sc.nextLong();
 		sc.nextLine();
-		System.out.println("Enter phone number: ");
+		System.out.print("Enter Phone Number: ");
 		Long phoneNum = sc.nextLong();
 		sc.nextLine();
-		System.out.println("Enter your EMail ID: ");
+		System.out.print("Enter Email ID: ");
 		String email = sc.nextLine();
-
-			//calling the set method
-		contact.setFirstName(firstName);
-		contact.setLastName(lastName);
-		contact.setAddress(address);
-		contact.setCity(city);
-		contact.setState(state);
-		contact.setZipCode(zipCode);
-		contact.setPhoneNumber(phoneNum);
-		contact.setEmail(email);
-		System.out.println(contact);
-
-	}
-	//ability to edit existing contact
-	
-	public void editContact() {
-		System.out.println("Enter First Name of Persion");
-		String editName = sc.nextLine();
-		if (editName.equalsIgnoreCase(contact.firstName)) {
-			addContact();
-			// System.out.println(contact);
-		} else {
-			System.out.println("Invalid Name......!");
-			System.out.println("Please enter valid First Name");
-			editContact();
-		}
-
-	}
-	//ability to delete existing contact
-
-	public void deleteContact() {
-		System.out.println("Enter First Name of Persion");
-		String editName = sc.nextLine();
-		if (editName.equals(contact.firstName)) {
-			System.out.println("you are deleted " + contact.firstName + "data");
-
-			contact = null;
-
-		}
-
-	}
-	//show all contacts
-	public void showContact() {
-		System.out.println("Number of contacts is stored in directory: " + contactArrayList.size());
-		System.out.println(
-				"-----------------------------------------------------------------------------------------------------------------");
-		if (contactArrayList.isEmpty()) {
-			System.out.println("There no contacts available for show...");
-		} else {
-			System.out.println("Sr No."
-					+ " First Name\t\t\tLast Name\t\t\tAddress\t\t\tCity\t\t\tZip Code\t\t\tMobile Number\t\t\tEmail Id ");
-
-			for (int i = 0; i < contactArrayList.size(); i++) {
-				System.out.print((i + 1) + "\t\t" + contactArrayList.get(i).getFirstName() + "\t\t\t\t\t"
-						+ contactArrayList.get(i).getLastName() + "\t\t\t" + contactArrayList.get(i).getAddress()
-						+ "\t\t\t\t" + contactArrayList.get(i).getCity() + "\t\t\t\t\t"
-						+ contactArrayList.get(i).getZipCode() + "\t\t\t\t\t" + contactArrayList.get(i).getPhoneNumber()
-						+ "\t\t\t\t\t" + contactArrayList.get(i).getEmail());
-				System.out.println(
-						"\n-----------------------------------------------------------------------------------------------------------------");
-			}
-		}
-		System.out.println(
-				"-----------------------------------------------------------------------------------------------------------------");
+		return new Contacts(firstName, lastName, address, city, state, zip, phoneNum, email);
 	}
 
-	public void getMenu() {
-		System.out.println("------------------Menu For AddressBooK------------------");
-
-		boolean exit = false;
-		do {
-			System.out.println(
-					"Choose Option from below \n1. Add Contacts \n2. Edit Contact \n3. Delete Contact \n4. View Contacts \n5. Exit ");
-			System.out.print("->:");
-			int op = sc.nextInt();
-			sc.nextLine();
-			switch (op) {
-			case 1:
-				addContact();
-				System.out.println("Contact added successfully....");
-				break;
-			case 2:
-				editContact();
-				System.out.println("Contact edited successfully....");
-				break;
-			case 3:
-				deleteContact();
-				break;
-			case 4:
-				showContact();
-				break;
-			case 5:
-				exit = true;
-				break;
-			default:
-				System.out.print("Please Choose right option: ");
-
-				break;
-			}
-		} while (!exit);
-	}
+	// method for show option for contacts
+	public static void addressBookOptions(AddressBook addressBook) {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n-------------------------- Address Book Contact Option --------------------------");
+            System.out.println("1. Add contact details");
+            System.out.println("2. Edit contact details");
+            System.out.println("3. Delete contact details");
+            System.out.println("4. Show contacts details");
+            System.out.println("5. Back to main menu");
+            System.out.print("Enter Your choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine();
+            switch (choice) {
+                case 1:
+                    addressBook.addContact(readContact());//call addcontact with passing method readcontact
+                    break;
+                case 2:
+                    System.out.println("Enter First name to edit contact: ");
+                    String name = sc.nextLine();
+                    if (addressBook.searchByName(name) == -1) //call searchbyname method by passing first name value
+                        System.out.println("Data Not Found....!");
+                    else
+                        addressBook.editContact(name, readContact()); //call edit method with name and method parameter
+                    break;
+                case 3:
+                    System.out.println("Enter First name to delete contact: ");
+                    name = sc.nextLine();
+                    if (addressBook.searchByName(name) == -1)
+                        System.out.println("Data Not Found....!");
+                    else
+                        addressBook.deleteContact(name); //call method for delete contact
+                    break;
+                case 4:
+                    System.out.println(addressBook.toString()); //call tostring method for showing details
+                    break;
+                case 5:
+                    return;
+                default:
+                    System.out.println("Invalid Choice!");
+                    break;
+            }
+        }
+    }
 }

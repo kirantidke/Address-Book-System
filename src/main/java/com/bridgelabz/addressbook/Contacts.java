@@ -10,10 +10,13 @@ public class Contacts {
 	Long phoneNumber;
 	String email;
 
+	//default constructor
+	
 	Contacts() {
 
 	}
-
+	//defining methods
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -54,6 +57,7 @@ public class Contacts {
 		this.state = state;
 	}
 
+	
 	public Long getZipCode() {
 		return zipCode;
 	}

@@ -49,10 +49,10 @@ public class AddressBookMain {
 				break;
 			case 3:
 				System.out.println("List of available Address Book : ");
-				Set keys1 = addressBookMap.keySet();// retrived keys from hashmap to show addressbooklist
-				Iterator i1 = keys1.iterator();
-				while (i1.hasNext()) {
-					System.out.println(i1.next());
+				Set keysit = addressBookMap.keySet();// retrived keys from hashmap to show addressbooklist
+				Iterator it = keysit.iterator();
+				while (it.hasNext()) {
+					System.out.println(it.next());
 				}
 				System.out.println("Enter Address Book name to be delete: ");
 				name = sc.nextLine();

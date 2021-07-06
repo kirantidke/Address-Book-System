@@ -264,7 +264,7 @@ public class AddressBook {
 		switch (choice) {
 		case 1:
 			Map<String, Long> countCity = contactList.stream()
-					.collect(Collectors.groupingBy(e -> e.getCity(), Collectors.counting()));
+					.collect(Collectors.groupingBy(e-> e.getCity(), Collectors.counting()));
 			System.out.println(countCity + "\n");
 			break;
 		case 2:

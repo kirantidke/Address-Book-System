@@ -1,6 +1,5 @@
 package com.bridgelabz;
 import java.io.*;
-
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +40,7 @@ public class AddressBookFileIO {
             br = new BufferedReader(new FileReader(file));
 
             String line = null;
-      //      String line2 = "";
+            String line2 = "";
             //read file line by line
             while ((line = br.readLine()) != null) {
 

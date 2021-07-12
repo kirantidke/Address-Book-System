@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 public class AddressBookFileIO {
 
-   
 	public void writeData(Map<String, AddressBook> addressBook) {
         File file = new File("C:\\Users\\HP\\eclipse-workspace\\AddressBook\\src\\main\\java\\com\\bridgelabz\\Contacts.txt");
         BufferedWriter bf = null;;

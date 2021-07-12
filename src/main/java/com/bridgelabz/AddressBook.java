@@ -294,6 +294,7 @@ public class AddressBook {
 			break;
 		case 2:
 			addressBook.sortBy(Contacts::getlName).forEach(System.out::println);
+		
 			break;
 		case 3:
 			addressBook.sortBy(Contacts::getCity).forEach(System.out::println);

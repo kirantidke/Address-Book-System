@@ -91,13 +91,7 @@ public class Contacts {
 		return email.equals(other.getEmail());
 	}
 
-	/*
-	 * @Override public String toString() { return "\nFirst_Name  : " + fName +
-	 * "\nLast_Name   : " + lName + "\nAddress     : " + address +
-	 * "\nCity        : " + city + "\nState       : " + state + "\nZIP Code    : " +
-	 * zip + "\nPhone_Number: " + phone + "\nEmail_ID    : " + email +
-	 * "\n-----------------------------------"; }
-	 */
+	
 
 	@Override
 	public String toString() {

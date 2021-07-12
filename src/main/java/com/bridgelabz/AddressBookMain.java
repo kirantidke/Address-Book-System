@@ -16,7 +16,7 @@ public class AddressBookMain {
 		AddressBook addressBook = new AddressBook();
 		Map<String, AddressBook> addressBookMap = new HashMap<String, AddressBook>();
 
-		while (true) {
+	while (true) {
 			System.out.println("\n--------------------------Welcome to Address Book System--------------------------");
 			System.out.println("1. New Address Book");
 			System.out.println("2. Select Address Book");
